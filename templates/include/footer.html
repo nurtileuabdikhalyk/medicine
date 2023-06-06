@@ -1,0 +1,93 @@
+{% load static %}
+<footer class="ftco-footer ftco-section img" style="background-image: url({% static 'images/footer-bg.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container-fluid px-md-5">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Medicus</h2>
+                    <ul class="ftco-footer-social list-unstyled mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.instagram.com/__ai_tolkyn__/"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2" data-toggle="modal" data-target="#myModal3">Контакт</h2>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2" data-toggle="modal" data-target="#myModal6">Жүйе туралы</h2>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <a href="#service"><h2 class="ftco-heading-2">Сервистер</h2></a>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <a href="{% url 'feedback' %}"><h2 class="ftco-heading-2">Пікірлер</h2></a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+
+<div class="modal video-modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <center><b style="color:black;">Контакт</b></center>
+            <div class="modal-body" style="color:black;">
+
+
+                <p> Техникалық қолдау нөмірі: </p>
+                <p>
+                    + 7 (708) 007 03 50 (Tele2/Altel абоненттері үшін)<br>
+                    + 7 (777) 007 03 50 (Beeline абоненттері үшін)<br>
+                    +7 (775) 007-03-50 (Kcell абоненттері үшін)</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <center><b style="color:black;">ЖҮЙЕ</b></center>
+            <div class="modal-body" style="color:black;">
+
+
+                <p>Республиканың әр аймағында олардың бизнес-процестерін оңтайландыру, олардың қажеттіліктерін талдау
+                    үшін біздің жүйеге қосылған медициналық ұйымдардың басшыларымен үнемі байланыста болатын аймақтық
+                    менеджерлер бар. Аймақтық менеджерлер жаңа клиенттерді іздеуді қамтамасыз етеді, әлеуетті Клиентті
+                    жүйенің мүмкіндіктері мен қызмет көрсету шарттарымен таныстырады.</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>

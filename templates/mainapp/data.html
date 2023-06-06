@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 py-5">
+                <div class="py-lg-5">
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-3">Медициналық деректер</h2>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate"> <div class="card-header">
+                                    <h5 class="mb-0">
+                                        Үйге шақырту
+
+                                    </h5>
+                                </div>
+                            {% for d in doctorathome %}
+                            <div class="card">
+
+                                <div class="col-md-24 ftco-animate">
+                                    <div class="blog-entry">
+                                        <div class="text d-block">
+
+                                            <p>{{ d.doctor.first_name }} {{ d.doctor.last_name }}
+                                            </p>
+                                            <p>{{ d.patient.first_name }} {{ d.patient.last_name }} </p><br>
+                                            Мекен-жай
+                                            <p>{{ d.address }} </p><br>
+                                            Жазылу уақыты
+                                            <p>{{ d.data }} </p><br>
+                                            Жазылған уақыты
+                                            <p>{{ d.created }} </p>
+                                            <br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <div class="card-header">
+                                    <h5 class="mb-0">
+                                        Жазылым
+
+                                    </h5>
+                                </div>
+                            {% for z in zapis %}
+                            <div class="card">
+
+                                <div class="col-md-24 ftco-animate">
+                                    <div class="blog-entry">
+                                        <div class="text d-block">
+
+                                            <p>{{ z.doctor.first_name }} {{ z.doctor.last_name }}
+                                            </p>
+                                            <p>{{ z.patient.first_name }} {{ z.patient.last_name }} </p><br>
+                                            Мекен-жай
+                                            <p>{{ z.address }} </p><br>
+                                            Жазылу уақыты
+                                            <p>{{ z.data }} </p><br>
+                                            Жазылған уақыты
+                                            <p>{{ z.created }} </p>
+                                            Статус
+                                            {% if record.completed %}
+                                            <p>Аяқталды </p>
+                                            {% else %}
+                                            <p>Қабылданды </p>
+                                            {% endif %}
+                                            <br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <div class="card-header">
+                                    <h5 class="mb-0">
+                                        Кеңес
+
+                                    </h5>
+                                </div>
+                            {% for c in consultation %}
+                            <div class="card">
+
+                                <div class="col-md-24 ftco-animate">
+                                    <div class="blog-entry">
+                                        <div class="text d-block">
+
+                                            <p>{{ c.first_name }} {{ c.last_name }}
+                                            </p>
+                                            <p>{{ c.department }} </p><br>
+                                            <p>{{ c.phone }} </p><br>
+                                            <p>{{ c.date }} </p><br>
+                                            <p>{{ c.time }} </p><br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

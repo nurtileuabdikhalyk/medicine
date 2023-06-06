@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 py-5">
+                <div class="py-lg-5">
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-3">Жеке мәліметтер</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div id="accordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button style="color:black;" class="btn btn-link" data-toggle="collapse"
+                                                data-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                            {{ user.patient.first_name }} {{ user.patient.last_name }}
+                                        </button>
+                                    </h5>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+
+                                        <p>
+                                            ЖСН <strong style="margin-left:300px; color:black;">{{ user.patient.jsn }}</strong>
+                                        </p>
+                                        <p>Туылған күні <strong style="margin-left:240px; color:black;">{{ user.patient.birthday }}</strong></p>
+                                        <p>Жынысы <strong style="margin-left:270px; color:black;">{{ user.patient.gender }}</strong></p>
+                                        <p>Ұлты <strong style="margin-left:300px; color:black;">{{ user.patient.national }}</strong></p>
+                                        <p>Мекен-жайы <strong style="margin-left:235px; color:black;">{{ user.patient.address }}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+
+                                        <button style="color:black;" class="btn btn-link collapsed"
+                                                data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                            Тіркеуде
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                         <p>Учаскелік дәрігер <strong style="margin-left:200px; color:black;">{{ user.patient.doctor.first_name }} {{ user.patient.doctor.last_name }}</strong></p>
+                                        <p>Тіркелген емхана <strong style="margin-left:200px; color:black;">{{ user.patient.doctor.poliklinika.organization }}</strong></p>
+                                        <p>Емхана мекен-жайы <strong style="margin-left:174px; color:black;">{{ user.patient.doctor.poliklinika.address }}</strong></p>
+                                        <p>Телефон <strong style="margin-left:265px; color:black;">{{ user.patient.doctor.poliklinika.phone }}</strong></p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

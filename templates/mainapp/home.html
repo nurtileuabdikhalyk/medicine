@@ -1,0 +1,453 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="hero-wrap js-fullheight" style="background-image: url({% static 'images/home.webp' %});"
+         data-section="home"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+             data-scrollax-parent="true">
+            <div class="col-md-6 pt-5 ftco-animate">
+                <div class="mt-5">
+
+                    <h1 class="mb-3">Сіздің қамқорлығыңыз үшін <br></h1>
+
+                    <p><a href="#service" class="btn btn-primary py-3 px-4">Жұмысты бастау</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light" id="service">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-7 py-5">
+                <div class="py-lg-5">
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-3">Біздің жүйе</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex"><span
+                                        class="flaticon-24-hours"></span></div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">24 сағаттық қызмет</h3>
+                                    <p>Тәулік бойы қызмет көрсету сізге көмек қажет болған жағдайда көмектесуге
+                                        дайын.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex"><span
+                                        class="flaticon-ambulance"></span></div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Дәрігерді үйге шақырту</h3>
+                                    <p>Дәрігерді үйге шақырту қызметімен сізде үйде жедел және сапалы медициналық
+                                        көмек алуға тамаша мүмкіндік бар.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex"><span
+                                        class="flaticon-doctor"></span></div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Білікті дәрігерлер</h3>
+                                    <p>Дәрігердің біліктілік дәрежесін көрсететін және еңбекақы мөлшеріне әсер ететін
+                                        кәсіби көрсеткіші.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex"><span
+                                        class="flaticon-stethoscope"></span></div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Тексеру</h3>
+                                    <p>Сіздің денеңіздің салмағы, пішіні, мөлшері немесе сыртқы түрі туралы жаңа
+                                        ақпаратты іздеу </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex">
+                <div class="appointment-wrap bg-white p-4 p-md-5 d-flex align-items-center">
+                    <form action="{% url 'consultation' %}" class="appointment-form ftco-animate" method="post">
+                        {% csrf_token %}
+                        <h3>Кеңес алу</h3>
+                        <div class="">
+                            <div class="form-group">
+                                {{ form.first_name }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group">
+                                {{ form.department }}
+
+                            </div>
+                            <div class="form-group">
+                                {{ form.phone }}
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group">
+                                <div class="input-wrap">
+                                    {{ form.date }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrap">
+                                    {{ form.time }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group">
+                                {{ form.question }}
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Жіберу" class="btn btn-secondary py-3 px-4">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pt ftco-no-pb" id="department-section">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters">
+            <div class="col-md-4 d-flex">
+                <div class="img img-dept align-self-stretch"
+                     style="background-image: url({% static 'images/dept-1.jpg' %});"></div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <div class="department-wrap p-4 ftco-animate">
+
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/doctor.png' %}" width="50" height="50" alt="">
+                                </div>
+                                <h3> {% if user.is_authenticated %}<a href="#" data-toggle="modal"
+                                                                      data-target="#myModal7">Учаскелік дәрігер</a>
+                                    {% else %}
+                                    <a href="{% url 'account_login' %}">Учаскелік дәрігер</a>
+                                    {% endif %}</h3>
+                            </div>
+
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/vehicle.png' %}" width="50" height="50" alt="">
+                                </div>
+                                <h3>{% if user.is_authenticated %}
+                                    <a href="#" data-toggle="modal"
+                                       data-target="#myModal5">Дәрігерді үйге шақырту </a>
+                                {% else %}<a href="{% url 'account_login' %}">Дәрігерді үйге шақырту </a>
+                                {% endif %}</h3>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/zapis.png' %}" width="50" height="50" alt="">
+                                </div>
+                                <h3>{% if user.is_authenticated %}
+                                    <a href="#" data-toggle="modal"
+                                       data-target="#myModal4">Дәрігерге жазылу </a>
+                                {% else %} <a href="{% url 'account_login' %}">Дәрігерге жазылу </a>
+                                {% endif %}
+                                </h3>
+                            </div>
+
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/medkarta.png' %}" width="50" height="50" alt="">
+                                </div>
+                                <h3>{% if user.is_authenticated %}
+                                    <a href="{% url 'data' %}">Медициналық деректер </a>
+                                {% else %}
+                                       <a href="{% url 'account_login' %}">Медициналық деректер </a>
+                                {% endif %}</h3>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/security.png' %}" width="50" height="50" alt="">
+                                </div>
+                                <h3>{% if user.is_authenticated %}
+                                    <a href="#" data-toggle="modal"
+                                       data-target="#myModal2">Сақтандырылған</a>
+                                {% else %}
+                                     <a href="{% url 'account_login' %}">Сақтандырылған</a>
+                                {% endif %}</h3>
+                            </div>
+
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/stethoscope.png' %}" width="50" height="50" alt="">
+                                </div>
+                                <h3>{% if user.is_authenticated %}
+                                    <a href="#" data-toggle="modal"
+                                       data-target="#myModal8">Тексеру</a>
+                                {% else %}<a href="{% url 'account_login' %}">Тексеру</a>
+                                {% endif %}</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <center><img src="{% static 'images/security.png' %}" alt=" " class="img-responsive"/></center>
+
+
+                <center><b>Cақтандырылған</b></center>
+
+                <p>Мамандарға жазылуға және диагностикалық зерттеулерге арналған бұл бөлім тек сақтандырылушыларға қол
+                    жетімді (медициналық сақтандыру қорына жарналарды үнемі төлейді). Сақтандырылған азаматтарға
+                    арналған медициналық көмектің көлемі:
+                </p>
+                <p>
+                    * Учаскелік дәрігердің жолдамасы бойынша емханадан қызмет алу (дәрігерлердің консультациялары,
+                    кәсіби
+                    тексерулер, талдаулар, диагностика, оның ішінде КТ/МРТ)
+                </p>
+
+
+                <p>
+                    * Жекелеген созылмалы аурулар үшін бейінді маманнан кеңес алу</p>
+
+                <p>
+                    * Медициналық оңалтудан өту <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal video-modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <center><img src="{% static 'images/zapis.png' %}" alt=" " class="img-responsive"/></center>
+
+                <center><b>Форманы толтырыңыз</b></center>
+                <div class="col-md-12 d-flex">
+                    <div class="appointment-wrap bg-white p-4 p-md-5 d-flex align-items-center">
+                        <form action="{% url 'zapis' %}" class="appointment-form ftco-animate" method="post">
+                            {% csrf_token %}
+                            <div class="">
+                                <div class="form-group">
+                                    {{ form_zapis.doctor }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_zapis.patient }}
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group">
+                                    {{ form_zapis.data }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="">
+
+                                <div class="form-group">
+                                    <input type="submit" value="Жазылу" class="btn btn-secondary py-3 px-4">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal video-modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <center><img src="{% static 'images/vehicle.png' %}" alt=" " class="img-responsive"/></center>
+
+                <center><b>Форманы толтырыңыз</b></center>
+                <div class="col-md-12 d-flex">
+                    <div class="appointment-wrap bg-white p-4 p-md-5 d-flex align-items-center">
+                        <form action="{% url 'call' %}" class="appointment-form ftco-animate" method="post">
+                            {% csrf_token %}
+                            <div class="">
+                                <div class="form-group">
+                                    {{ form_call.doctor }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_call.patient }}
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group">
+                                    {{ form_call.address }}
+
+                                </div>
+                                <div class="form-group">
+                                    {{ form_call.data }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="">
+
+                                <div class="form-group">
+                                    <input type="submit" value="Шақыру" class="btn btn-secondary py-3 px-4">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal video-modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <center><img src="{% static 'images/doctor.png' %}" alt=" " class="img-responsive"/></center>
+
+                <center>
+                    <b>Учаскелік дәрігер</b>
+
+                    {% if user.patient.doctor %}
+                    <p> {{ user.patient.doctor }} </p>
+                    {% else %}
+                    <p style="color:red;"> Сізге учаскелік дәрігер бекітілмеген! </p>
+                    {% endif %}
+
+                </center>
+
+                <div class="col-md-12 d-flex">
+
+                    <div class="appointment-wrap bg-white p-4 p-md-5 d-flex align-items-center">
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/vehicle.png' %}" width="40" height="40" alt="">
+                                </div>
+                                <h5><a href="{% url 'call_district_doctor' %}" style="color:black;">Үйге шақырту</a>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <div class="icon">
+                                    <img src="{% static 'images/medkarta.png' %}" width="40" height="40" alt="">
+                                </div>
+                                <h5><a href="{% url 'record_district_doctor' %}" style="color:black;">Жазылу</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal video-modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <center><img src="{% static 'images/stethoscope.png' %}" alt=" " class="img-responsive"/></center>
+
+
+                <center><b>Тексеру</b></center>
+                <p>Толық дене денсаулығын тексеру пакеті қамтылған Өте маңызды 69 Қан сынағы.</p>
+
+                <p> * D дәрумені тапшылығы сынағы (25 Oh D витаминінің жалпы сынағы) </p>
+                <p> * В12 дәрумені сынағы </p>
+                <p> * Hba1c сынағы </p>
+                <p> * Қандағы глюкозаның орташа сынағы </p>
+                <p>* LFT TEST (бауыр функциясын тексеру) </p>
+                <p>* KFT ТЕСТ (бүйрек функциясын тексеру) </p>
+                <p> * Липидтер профилі (барлық холестеринді сынау) </p>
+                <p> * Сарысудағы темір сынағы </p>
+                <p> * Тестостерон сынағы </p>
+                <p> * CBC сынағы (толық гемограмма) </p>
+                <p> * Қалқанша безінің сынағы (TSH, T4, T3 гормоны) </p>
+                <p> * CRP сынағы (C РЕАКТивті ақуыз)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

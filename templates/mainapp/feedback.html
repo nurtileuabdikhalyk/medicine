@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<br><br>
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+    <div class="container"> <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section ftco-animate">
+                    <h2 class="mb-3">Пікірлер</h2>
+                </div>
+            </div>
+        <div class="row d-flex">
+
+            <div class="col-md-7 py-5">
+                {% for feedback in feedbacks %}
+                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-flex">
+                        <div class="media-body pl-md-4">
+                            <h3 class="heading mb-3">{{ feedback.first_name }} {{ feedback.last_name }}</h3>
+                            <p>{{ feedback.message }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <div class="row d-flex">
+            <div class="col-md-7 py-5">
+                <form action="{% url 'feedback' %}" class="appointment-form ftco-animate" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{ feedback_form.first_name }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ feedback_form.last_name }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ feedback_form.message }}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Жіберу" class="btn btn-secondary py-3 px-4">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock content %}

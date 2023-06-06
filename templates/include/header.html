@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+     id="ftco-navbar">
+    <div class="container">
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Мәзір
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav nav ml-auto">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link"><span>Басты бет</span></a></li>
+
+                <li class="nav-item"><a href="{% if user.is_authenticated %}{% url 'card' %}{% else %}{% url 'account_login' %}{% endif %}" class="nav-link"><span>Медкарта</span></a></li>
+                <li class="nav-item"><a href="{% if user.is_authenticated %}{% url 'record' %}{% else %}{% url 'account_login' %}{% endif %}" class="nav-link"><span>Жазылымдар</span></a></li>
+<!--                <li class="nav-item"><a href="#doctor-section" class="nav-link"><span>Doctors</span></a></li>-->
+                <!--                <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>-->
+                <!--                <li class="nav-item cta mr-md-2"><a href="appointment.html" class="nav-link">Appointment</a></li>-->
+            </ul>
+
+        </div>
+        <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right justify-content-end">
+            {% if user.is_authenticated %}
+
+            <p class="mb-0 register-link" ><a href="#" class="mr-3" >{{ user.username }}</a>|<a href="{% url 'account_logout' %}" style="color:#fe5f55"> Шығу</a></p>
+            {% else %}
+            <p class="mb-0 register-link"><a href="{% url 'account_login' %}" class="mr-3">Кіру</a>|<a href="{% url 'account_signup' %}" style="color:#fe5f55"> Тіркелу</a></p>
+            {% endif %}
+        </div>
+    </div>
+</nav>
